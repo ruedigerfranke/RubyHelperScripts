@@ -1,0 +1,7 @@
+---
+last_upload_date: *PUT_TIMESTAMP_HERE*
+ftp:
+  server: *PUT_SERVER_HERE*
+  username: *PUT_USERNAME_HERE*
+  password: *PUT_PASSWORD_HERE*
+  project_dir: *PUT_PROJECT_DIRECTORY_PATH_ON_THE_SERVER_HERE*
