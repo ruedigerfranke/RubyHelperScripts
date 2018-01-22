@@ -8,8 +8,11 @@ config_file = '.ftp-upload-configuration.yml'
 # Load configuration from configuration file
 config = Psych.load_file(config_file)
 
-# Get a list of all modified files since the last upload
-files = Dir["**/*"].reject {|fn| File.directory?(fn) }.reject {|fn| File.mtime(fn) < Time.at(config['last_upload_date'])}.reject { |fn| File.basename(fn) == 'upload_configuration.yml' }
+# Get a list of all modified files since the last upload, ignore configuration file and .git folders
+files = Dir["**/*"].reject { |fn| File.directory?(fn) } \
+                   .reject { |fn| File.mtime(fn) < Time.at(config['last_upload_date']) } \
+                   .reject { |fn| File.basename(fn) == config_file } \
+                   .reject { |fn| File.path(fn).include? '.git' }
 
 # Save the current time to last_upload_date in the configuration file
 config['last_upload_date'] = Time.now.to_i

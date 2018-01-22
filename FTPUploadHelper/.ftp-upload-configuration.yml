@@ -1,4 +1,8 @@
 ---
+# Configuration File for FTP Upload Helper by Rüdiger Franke
+#
+# Create timestamp via: ruby -e 'puts Time.now.to_i'
+#
 last_upload_date: *PUT_TIMESTAMP_HERE*
 ftp:
   server: *PUT_SERVER_HERE*
