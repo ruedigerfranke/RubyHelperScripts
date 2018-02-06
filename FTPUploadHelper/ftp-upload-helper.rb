@@ -46,6 +46,6 @@ Net::FTP.open(config['ftp']['server'], config['ftp']['username'], config['ftp'][
     ftp.putbinaryfile(file)
 
     # Puts information about the uploaded file to console
-    puts "Upload #{file} to #{dir}#{File.basename(file)}"
+    puts "Upload #{file} to #{dir}/#{File.basename(file)}"
   }
 end
